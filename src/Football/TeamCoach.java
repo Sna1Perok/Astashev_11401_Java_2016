@@ -24,15 +24,15 @@ public class TeamCoach implements Coach {
     @Override
     public FootballPlayer replacement(FootballPlayer footballPlayer,FootballPlayer footballPlayer1) {
         if(this.experience<30){
-            System.out.println("Тренер делает плохую замену игрока  - " + footballPlayer.name + " на - " + footballPlayer1.name);
+            System.out.println("Тренер делает плохую замену игрока  - " + footballPlayer.getName() + " на - " + footballPlayer1.getName());
         }
         if(this.experience>30&& this.experience<50){
-            System.out.println("Тренер делает замену которую все уже давно ждали, игрока  - " + footballPlayer.name + " на - " + footballPlayer1.name);
+            System.out.println("Тренер делает замену которую все уже давно ждали, игрока  - " + footballPlayer.getName() + " на - " + footballPlayer1.getName());
         }
         if(this.experience>50){
-            System.out.println("Тренер делает нужную замену заменуигрока  - " + footballPlayer.name + " на - " + footballPlayer1.name);
+            System.out.println("Тренер делает нужную замену заменуигрока  - " + footballPlayer.getName() + " на - " + footballPlayer1.getName());
         }
-        System.out.println("Замена игрока  - " + footballPlayer.name + " на - " + footballPlayer1.name);
+        System.out.println("Замена игрока  - " + footballPlayer.getName() + " на - " + footballPlayer1.getName());
         return null;
     }
 
@@ -49,6 +49,6 @@ public class TeamCoach implements Coach {
 
     @Override
     public void tolkToTheAssistant(FootballPlayer footballPlayer) {
-        System.out.println(" Тренер "+ this.name +  "разговариват со совим помощником о возможной замене - " + footballPlayer.name);
+        System.out.println(" Тренер "+ this.name +  "разговариват со совим помощником о возможной замене - " + footballPlayer.getName());
     }
 }

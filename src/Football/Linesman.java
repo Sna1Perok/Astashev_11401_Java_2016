@@ -20,10 +20,10 @@ public class Linesman implements Referi {
     @Override
     public void findOffence(FootballPlayer footballPlayer) {
         if (this.expirience < 40) {
-            System.out.println("Боковой не арбитр заметил нарушени игрока " + footballPlayer.name);
+            System.out.println("Боковой не арбитр заметил нарушени игрока " + footballPlayer.getName());
         }
         if (this.expirience > 40) {
-            System.out.println("Боковой арбитр заметил нарушени игрока " + footballPlayer.name);
+            System.out.println("Боковой арбитр заметил нарушени игрока " + footballPlayer.getName());
             whistle();
 
         }
@@ -44,10 +44,10 @@ public class Linesman implements Referi {
     @Override
     public void offside(FootballPlayer footballPlayer,Linesman linesman) {
         if (this.expirience < 40) {
-            System.out.println("Боковой не арбитр заметил офсайда игрока " + footballPlayer.name);
+            System.out.println("Боковой не арбитр заметил офсайда игрока " + footballPlayer.getName());
         }
         if (this.expirience > 40) {
-            System.out.println("Боковой арбитр заметил офсайд игрока " + footballPlayer.name);
+            System.out.println("Боковой арбитр заметил офсайд игрока " + footballPlayer.getName());
         }
         whistle();
 

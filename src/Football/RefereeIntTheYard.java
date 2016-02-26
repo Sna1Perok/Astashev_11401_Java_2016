@@ -18,18 +18,18 @@ public class RefereeIntTheYard implements Player, Referi {
     @Override
     public void giveThePass(FootballPlayer fname) {
         if (this.attackScill < 30 && this.defendScill < 30) {
-            System.out.println("Игрок " + this.name + " делает пасс своему напарнику по команде " + fname.name + " но к сожаление он проходит");
+            System.out.println("Игрок " + this.name + " делает пасс своему напарнику по команде " + fname.getName() + " но к сожаление он проходит");
         }
         if (this.attackScill > 30 && this.attackScill < 50 && this.defendScill > 30 && this.defendScill < 50) {
-            System.out.println("Игрок " + this.name + " делает хороший пасс своему напарнику по команде " + fname.name);
+            System.out.println("Игрок " + this.name + " делает хороший пасс своему напарнику по команде " + fname.getName());
         }
         if (this.attackScill > 50 && this.defendScill > 50) {
-            System.out.println("Игрок " + this.name + " делает филигранный пасс своему напарнику по команде " + fname.name + " и он выходит 1 на 1");
+            System.out.println("Игрок " + this.name + " делает филигранный пасс своему напарнику по команде " + fname.getName() + " и он выходит 1 на 1");
         }
     }
 
     @Override
-    public void doCanopy() {
+    public void doCanopy(FootballPlayer footballPlayer) {
         if (this.attackScill < 30 && this.defendScill < 30) {
             System.out.println("Игрок " + this.name + " делает навес своему напарнику по команде, но не понятно куда и зачем");
         }
@@ -60,19 +60,19 @@ public class RefereeIntTheYard implements Player, Referi {
     @Override
     public void circlePlayer(FootballPlayer footballPlayer) {
         if (this.defendScill < 50) {
-            System.out.println("Игрок " + this.name + " пытается обвести игрока " + footballPlayer.name + " но у него к сожалению это не получается");
+            System.out.println("Игрок " + this.name + " пытается обвести игрока " + footballPlayer.getName() + " но у него к сожалению это не получается");
         } else {
-            System.out.println("Игрок " + this.name + " изящно обводит игрока " + footballPlayer.name + " и оставляет его позади");
+            System.out.println("Игрок " + this.name + " изящно обводит игрока " + footballPlayer.getName() + " и оставляет его позади");
         }
     }
 
     @Override
     public void findOffence(FootballPlayer footballPlayer) {
         if (this.expirience < 40 && age < 31) {
-            System.out.println("Судья " + this.name + "не  заметил нарушени игрока " + footballPlayer.name);
+            System.out.println("Судья " + this.name + "не  заметил нарушени игрока " + footballPlayer.getName());
         }
         if (this.expirience > 40 && age > 30) {
-            System.out.println("Судья" + this.name + "  заметил нарушени игрока " + footballPlayer.name);
+            System.out.println("Судья" + this.name + "  заметил нарушени игрока " + footballPlayer.getName());
             showTheCard(footballPlayer);
             whistle();
         }
@@ -85,7 +85,7 @@ public class RefereeIntTheYard implements Player, Referi {
 
     @Override
     public void showTheCard( FootballPlayer footballPlayer) {
-        System.out.println("Судья" + this.name + "  заметил нарушени игрока " + footballPlayer.name);
+        System.out.println("Судья" + this.name + "  заметил нарушени игрока " + footballPlayer.getName());
         footballPlayer.addCard();
     }
 

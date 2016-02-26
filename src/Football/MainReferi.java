@@ -20,10 +20,10 @@ public class MainReferi implements Referi {
     @Override
     public void findOffence(FootballPlayer footballPlayer) {
         if (this.expirience < 40 && age < 31) {
-            System.out.println("Судья " + this.name + "не  заметил нарушени игрока " + footballPlayer.name);
+            System.out.println("Судья " + this.name + "не  заметил нарушени игрока " + footballPlayer.getName());
         }
         if (this.expirience > 40 && age > 30) {
-            System.out.println("Судья" + this.name + "  заметил нарушени игрока " + footballPlayer.name);
+            System.out.println("Судья" + this.name + "  заметил нарушени игрока " + footballPlayer.getName());
             showTheCard(footballPlayer);
             whistle();
         }
@@ -36,7 +36,7 @@ public class MainReferi implements Referi {
 
     @Override
     public void showTheCard( FootballPlayer footballPlayer) {
-        System.out.println("Судья" + this.name + "  заметил нарушени игрока " + footballPlayer.name);
+        System.out.println("Судья" + this.name + "  заметил нарушени игрока " + footballPlayer.getName());
         footballPlayer.addCard();
     }
 

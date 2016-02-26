@@ -14,8 +14,27 @@ public class FootballTeam implements Team {
     FootballPlayer bestPlayer;
 
 
+    public String getName() {
+        return name;
+    }
 
-    public FootballTeam(String name,ArrayList<FootballPlayer> playersTeam,String bestGame,int teamSpirit) {
+    public int getTeamSpirit() {
+        return teamSpirit;
+    }
+
+    public ArrayList<FootballPlayer> getTeam() {
+        return team;
+    }
+
+    public String getBestGame() {
+        return bestGame;
+    }
+
+    public FootballPlayer getBestPlayer() {
+        return bestPlayer;
+    }
+
+    public FootballTeam(String name, ArrayList<FootballPlayer> playersTeam, String bestGame, int teamSpirit) {
         this.name = name;
         this.bestGame = bestGame;
         this.team = playersTeam;
@@ -24,7 +43,7 @@ public class FootballTeam implements Team {
 
     @Override
     public boolean theExchangeOfPlayers(FootballPlayer myplayer, FootballPlayer yourplayer) {
-        System.out.println("Команда " + this.name + "хочет провести трансфер игрока" + myplayer.name + "на игрока" + yourplayer.name);
+        System.out.println("Команда " + this.name + "хочет провести трансфер игрока" + myplayer.getName() + "на игрока" + yourplayer.getName());
         return false;
     }
 
@@ -44,10 +63,10 @@ public class FootballTeam implements Team {
     public boolean addPlayer(FootballPlayer fplayer) {
 
         if (team.add(fplayer)) {
-            System.out.println("Игрок " + fplayer.name + " перешел в команду " + name);
+            System.out.println("Игрок " + fplayer.getName() + " перешел в команду " + name);
             return true;
         } else {
-            System.out.println("Трансфер с игроков " + fplayer.name + " сорвался, он не перейдет в " + name);
+            System.out.println("Трансфер с игроков " + fplayer.getName() + " сорвался, он не перейдет в " + name);
             return false;
         }
     }

@@ -7,12 +7,12 @@ import java.util.*;
 public abstract class Game implements Player,Team {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        FootballPlayer fp0 = new FootballPlayer("Nikita",0,100,90);
+        FootballPlayer fp0 = new FootballPlayer("Nikita",0,100,90,false);
         ArrayList<FootballPlayer> plteam = new ArrayList<FootballPlayer>();
 
-        FootballPlayer fp1 = new FootballPlayer("Kirill",0,10,90);
-        FootballPlayer fp2 = new FootballPlayer("Kolya",2,50,50);
-        Player fp3 = new FootballPlayer("Yura",0,80,70);
+        FootballPlayer fp1 = new FootballPlayer("Kirill",0,10,90,false);
+        FootballPlayer fp2 = new FootballPlayer("Kolya",2,50,50,false);
+        Player fp3 = new FootballPlayer("Yura",0,80,70,false);
 
 
         Coach coach1 = new TeamCoach("Nikita","Rubin",20,80);
@@ -30,10 +30,10 @@ public abstract class Game implements Player,Team {
         goalkeeper.vait("Sasha");
         goalkeeper.jump("Sasha",30);
 
-        Player player = new FootballPlayer("Nikita",0,100,50);
-        FootballPlayer player1 = new FootballPlayer("Nikita",0,100,50);
+        Player player = new FootballPlayer("Nikita",0,100,50,false);
+        FootballPlayer player1 = new FootballPlayer("Nikita",0,100,50,false);
         player.giveThePass(player1);
-        player.doCanopy();
+        player.doCanopy(fp0);
         player.circlePlayer(player1);
 
         Referi linesman = new Linesman(0,50,40,"Kolasy");
@@ -70,7 +70,7 @@ public abstract class Game implements Player,Team {
         team.favoritPlayer();
         team.statistica();
         team.getTheTeam();
-        FootballPlayer player2 = new FootballPlayer("asd",21,23,3);
+        FootballPlayer player2 = new FootballPlayer("asd",21,23,3,false);
         team.theExchangeOfPlayers(player1, player2);
 
         Weather weather = new BadWeather(0,0,3);
@@ -90,7 +90,7 @@ public abstract class Game implements Player,Team {
         RefereeIntTheYard goodplayer = new RefereeIntTheYard();
         goodplayer.circlePlayer(player1);
         goodplayer.showTheCard(player1);
-        goodplayer.doCanopy();
+        goodplayer.doCanopy(fp0);
         goodplayer.findOffence(player1);
         goodplayer.giveThePass(player1);
 

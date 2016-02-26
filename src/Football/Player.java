@@ -4,7 +4,7 @@ package Football;/**
 
 public interface Player {
     void giveThePass(FootballPlayer name);
-    void doCanopy();
+    void doCanopy(FootballPlayer footballPlayer);
     void toBreakTheRules(MainReferi mainReferi);
     void circlePlayer(FootballPlayer footballPlayer);
 }
