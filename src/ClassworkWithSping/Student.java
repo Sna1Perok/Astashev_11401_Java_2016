@@ -6,22 +6,25 @@ import java.util.ArrayList;
 
 public class Student {
     private String name;
-    private String institute;
+
+    public Institute getInstitute() {
+        return institute;
+    }
+
+    private Institute institute;
     private ArrayList<Lesson> lessons;
 
     public String getName() {
         return name;
     }
 
-    public String getInstitute() {
-        return institute;
-    }
+
 
     public ArrayList<Lesson> getLessons() {
         return lessons;
     }
 
-    Student(String name, String institute, ArrayList<Lesson> lessons) {
+    Student(String name, Institute institute, ArrayList<Lesson> lessons) {
         this.institute = institute;
         this.lessons = lessons;
         this.name = name;
