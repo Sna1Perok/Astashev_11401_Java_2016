@@ -8,7 +8,6 @@ public class FootballPlayer implements Player {
     private String name;
     private boolean iHaveABoll;
     private int card;
-
     private int attackScill;
     private int defendScill;
 
@@ -88,11 +87,13 @@ public class FootballPlayer implements Player {
     public void toBreakTheRules(MainReferi mainReferi) {
         if (this.defendScill < 50 || this.attackScill < 50) {
             if (this.card < 1) {
-                System.out.println("Игрок " + this.name + " идет в жестки подкат " + "и  судья " + mainReferi.name +
+                System.out.println("Игрок " + this.name + " идет в жестки подкат " + "и  судья " + mainReferi.getName() +
                         " показывает желтую карточку");
+                this.iHaveABoll = false;
             } else {
-                System.out.println("Игрок " + this.name + " идет в жестки подкат " + "и  судья " + mainReferi.name +
+                System.out.println("Игрок " + this.name + " идет в жестки подкат " + "и  судья " + mainReferi.getName() +
                         " показывает 2ю желтую карточку а затем и красную");
+                this.iHaveABoll = false;
             }
             mainReferi.findOffence(this);
         } else {
@@ -111,5 +112,9 @@ public class FootballPlayer implements Player {
            this.iHaveABoll = true;
             System.out.println("Игрок " + this.name + " изящно обводит игрока " + footballPlayer.name + " и оставляет его позади");
         }
+    }
+
+    public void setiHaveABoll(boolean iHaveABoll) {
+        this.iHaveABoll = iHaveABoll;
     }
 }

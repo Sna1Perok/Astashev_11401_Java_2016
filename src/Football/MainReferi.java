@@ -5,10 +5,26 @@ package Football;
  */
 
 public class MainReferi implements Referi {
-    int position;
-    int expirience;
-    String name;
-    int age;
+    private int position;
+    private int expirience;
+    private String name;
+    private int age;
+
+    public int getPosition() {
+        return position;
+    }
+
+    public int getExpirience() {
+        return expirience;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
 
     public MainReferi(int position, int expirience, int age, String name) {
         this.position = position;
@@ -20,9 +36,11 @@ public class MainReferi implements Referi {
     @Override
     public void findOffence(FootballPlayer footballPlayer) {
         if (this.expirience < 40 && age < 31) {
+           this.expirience--;
             System.out.println("Судья " + this.name + "не  заметил нарушени игрока " + footballPlayer.getName());
         }
         if (this.expirience > 40 && age > 30) {
+            this.expirience++;
             System.out.println("Судья" + this.name + "  заметил нарушени игрока " + footballPlayer.getName());
             showTheCard(footballPlayer);
             whistle();
@@ -31,17 +49,20 @@ public class MainReferi implements Referi {
 
     @Override
     public void whistle() {
+        this.expirience++;
         System.out.println("Cудья " + this.name + "поднимает свистит и поднимает флажок");
     }
 
     @Override
     public void showTheCard( FootballPlayer footballPlayer) {
+        this.expirience++;
         System.out.println("Судья" + this.name + "  заметил нарушени игрока " + footballPlayer.getName());
         footballPlayer.addCard();
     }
 
     @Override
     public void offside(FootballPlayer footballPlayer,Linesman linesman) {
+        this.expirience++;
         System.out.println("Главный судья не фиксирует офсайд, но это делает боковой орбитр " + linesman.name);
         linesman.offside(footballPlayer,linesman);
 

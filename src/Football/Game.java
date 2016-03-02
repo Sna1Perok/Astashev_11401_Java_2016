@@ -58,7 +58,7 @@ public abstract class Game implements Player,Team {
         fans.shout();
         fans.cheer();
 
-        Spectator  spectator = new Observer(20000,true,true,true,"3");
+        Spectator  spectator = new Observer(20000,true,true,true,"3",20);
         spectator.cheer();
         spectator.shout();
         spectator.sign();
@@ -69,7 +69,7 @@ public abstract class Game implements Player,Team {
         Team team = new FootballTeam("Rubin",footballteam,"Rebin - Zenit 100-0", 32);
         team.favoritPlayer();
         team.statistica();
-        team.getTheTeam();
+
         FootballPlayer player2 = new FootballPlayer("asd",21,23,3,false);
         team.theExchangeOfPlayers(player1, player2);
 
@@ -87,7 +87,7 @@ public abstract class Game implements Player,Team {
         weather.sunny();
         weather.thunder(0,0,0);
 
-        RefereeIntTheYard goodplayer = new RefereeIntTheYard();
+        RefereeIntTheYard goodplayer = new RefereeIntTheYard(true,2,3,3,3,3,"as",3);
         goodplayer.circlePlayer(player1);
         goodplayer.showTheCard(player1);
         goodplayer.doCanopy(fp0);

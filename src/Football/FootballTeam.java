@@ -30,39 +30,38 @@ public class FootballTeam implements Team {
         return bestGame;
     }
 
-    public FootballPlayer getBestPlayer() {
-        return bestPlayer;
-    }
 
     public FootballTeam(String name, ArrayList<FootballPlayer> playersTeam, String bestGame, int teamSpirit) {
         this.name = name;
         this.bestGame = bestGame;
         this.team = playersTeam;
+        this.teamSpirit = teamSpirit;
     }
 
 
     @Override
     public boolean theExchangeOfPlayers(FootballPlayer myplayer, FootballPlayer yourplayer) {
         System.out.println("Команда " + this.name + "хочет провести трансфер игрока" + myplayer.getName() + "на игрока" + yourplayer.getName());
+       teamSpirit++;
         return false;
     }
 
     @Override
     public FootballPlayer favoritPlayer() {
-
+        teamSpirit++;
         return null;
     }
 
     @Override
     public void statistica() {
-      //  String namePL = bestPlayer.name;
-        System.out.println("name this team - " + name + "the best game - " + bestGame + ", the best player " );
+        //  String namePL = bestPlayer.name;
+        System.out.println("name this team - " + name + "the best game - " + bestGame + ", the best player ");
     }
 
     @Override
     public boolean addPlayer(FootballPlayer fplayer) {
-
-        if (team.add(fplayer)) {
+        if (this.getTeamSpirit()>99) {
+            team.add(fplayer);
             System.out.println("Игрок " + fplayer.getName() + " перешел в команду " + name);
             return true;
         } else {
@@ -71,8 +70,5 @@ public class FootballTeam implements Team {
         }
     }
 
-    @Override
-    public ArrayList<FootballPlayer> getTheTeam() {
-        return team;
-    }
+
 }
