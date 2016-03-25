@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="cn1" class="ru.kpfu.itis.Group11401.Astashev.Task009.Task003.ComplexNumber">
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{2}"/>
+    </bean>
+    <bean id="cn2" class="ru.kpfu.itis.Group11401.Astashev.Task009.Task003.ComplexNumber">
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{2}"/>
+    </bean>
+    <bean id="cn3" class="ru.kpfu.itis.Group11401.Astashev.Task009.Task003.ComplexNumber">
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{2}"/>
+    </bean>
+    <bean id="cn4" class="ru.kpfu.itis.Group11401.Astashev.Task009.Task003.ComplexNumber">
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{2}"/>
+    </bean>
+
+
+    <bean id="cm" class="ru.kpfu.itis.Group11401.Astashev.Task009.Task003.ComplexMatrix2x2">
+        <constructor-arg ref="cn1"/>
+        <constructor-arg ref="cn2"/>
+        <constructor-arg ref="cn3"/>
+        <constructor-arg ref="cn4"/>
+    </bean>
+
+    <bean id="cm1" class="ru.kpfu.itis.Group11401.Astashev.Task009.Task003.ComplexMatrix2x2">
+        <constructor-arg ref="cn1"/>
+        <constructor-arg ref="cn1"/>
+        <constructor-arg ref="cn1"/>
+        <constructor-arg ref="cn1"/>
+    </bean>
+    <bean id="defoultMatrix" class="ru.kpfu.itis.Group11401.Astashev.Task009.Task003.ComplexMatrix2x2">
+        <constructor-arg value=""/>
+        <constructor-arg value=""/>
+        <constructor-arg value=""/>
+        <constructor-arg value=""/>
+    </bean>
+
+</beans>

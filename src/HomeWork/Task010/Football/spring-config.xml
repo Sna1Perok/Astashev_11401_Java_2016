@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- main referee -->
+
+    <bean id="mReferee" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.MainReferee">
+        <constructor-arg value="#{50}"/>
+        <constructor-arg value="#{50}"/>
+        <constructor-arg value="#{'Shol'}"/>
+        <constructor-arg value="#{30}"/>
+    </bean>
+
+    <!-- main goalkeeper -->
+
+    <bean id="mGoalkeep" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.MainGoalkeeper">
+        <constructor-arg value="#{50}"/>
+        <constructor-arg value="#{50}"/>
+        <constructor-arg value="#{'Shol'}"/>
+        <constructor-arg value="#{30}"/>
+    </bean>
+
+    <!-- linesman -->
+
+    <bean id="linesman" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.Linesman">
+        <constructor-arg value="#{0}"/>
+        <constructor-arg value="#{41}"/>
+        <constructor-arg value="#{41}"/>
+        <constructor-arg value="#{'Lok'}"/>
+    </bean>
+    <bean id="linesman1" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.Linesman">
+        <constructor-arg value="#{0}"/>
+        <constructor-arg value="#{30}"/>
+        <constructor-arg value="#{30}"/>
+        <constructor-arg value="#{'Lok'}"/>
+    </bean>
+
+    <!-- good weather -->
+
+
+    <bean id="goodWeather" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.GoodWeather">
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{3}"/>
+    </bean>
+    <bean id="goodWeather3" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.GoodWeather">
+        <constructor-arg value="#{2}"/>
+        <constructor-arg value="#{2}"/>
+        <constructor-arg value="#{-3}"/>
+    </bean>
+
+    <bean id="goodWeather2" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.GoodWeather">
+        <constructor-arg value="#{2}"/>
+        <constructor-arg value="#{2}"/>
+        <constructor-arg value="#{2}"/>
+    </bean>
+
+    <bean id="goodWeather1" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.GoodWeather">
+        <constructor-arg value="#{3}"/>
+        <constructor-arg value="#{3}"/>
+        <constructor-arg value="#{3}"/>
+    </bean>
+
+
+    <!-- football teams -->
+
+
+    <bean id="tea," class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.FootballTeam">
+        <constructor-arg value="#{'Rubin'}"/>
+
+        <constructor-arg value="#{true}"/>
+        <constructor-arg value="#{true}"/>
+        <constructor-arg value="#{50}"/>
+    </bean>
+
+    <!-- fans -->
+
+    <bean id="fans" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.Fans">
+        <constructor-arg value="#{'Rubin'}"/>
+        <constructor-arg value="#{100}"/>
+        <constructor-arg value="#{true}"/>
+        <constructor-arg value="#{true}"/>
+        <constructor-arg value="#{50}"/>
+    </bean>
+    <bean id="fans1" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.Fans">
+        <constructor-arg value="#{'Bef'}"/>
+        <constructor-arg value="#{100}"/>
+        <constructor-arg value="#{true}"/>
+        <constructor-arg value="#{true}"/>
+        <constructor-arg value="#{50}"/>
+    </bean>
+
+    <!-- bad weather -->
+
+    <bean id="badWeather" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.BadWeather">
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{3}"/>
+    </bean>
+    <bean id="badWeather1" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.BadWeather">
+        <constructor-arg value="#{3}"/>
+        <constructor-arg value="#{3}"/>
+        <constructor-arg value="#{3}"/>
+    </bean>
+    <bean id="badWeather2" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.BadWeather">
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{3}"/>
+        <constructor-arg value="#{3}"/>
+    </bean>
+    <bean id="badWeather3" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.BadWeather">
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{4}"/>
+    </bean>
+    <!-- footballers -->
+
+    <bean id="footballPlayer1" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.FootballPlayer">
+        <constructor-arg value="#{'Nikita'}"/>
+        <constructor-arg value="#{1}"/>
+        <constructor-arg value="#{0}"/>
+        <constructor-arg value="#{99}"/>
+        <constructor-arg value="#{true}"/>
+    </bean>
+    <bean id="footballPlayer2" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.FootballPlayer">
+        <constructor-arg value="#{'Kirill'}"/>
+
+        <constructor-arg value="#{0}"/>
+        <constructor-arg value="#{30}"/>
+        <constructor-arg value="#{50}"/>
+        <constructor-arg value="#{true}"/>
+    </bean>
+    <bean id="Nikita" class="ru.kpfu.itis.Group11401.Astashev.Task010.Football.FootballPlayer">
+        <constructor-arg value="#{'Nikita'}"/>
+        <constructor-arg value="#{100}"/>
+        <constructor-arg value="#{200}"/>
+        <constructor-arg value="#{32}"/>
+        <constructor-arg value="#{true}"/>
+    </bean>
+
+</beans>
