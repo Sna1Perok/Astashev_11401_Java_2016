@@ -6,6 +6,9 @@ import java.util.*;
 
 public abstract class Game implements Player,Team {
     public static void main(String[] args) {
+
+
+
         Scanner in = new Scanner(System.in);
         FootballPlayer fp0 = new FootballPlayer("Nikita",0,100,90,false);
         ArrayList<FootballPlayer> plteam = new ArrayList<FootballPlayer>();

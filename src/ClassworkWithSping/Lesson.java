@@ -1,3 +1,5 @@
+package ClassworkWithSping;
+
 /**
  * Created by 1 on 26.02.2016.
  */

@@ -3,101 +3,19 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- ПАРЫ -->
-    <bean id="proga" class="Lesson">
-        <constructor-arg value="Proga"/>
+    <bean id="footballPlayer1" class="Football.FootballPlayer">
+        <constructor-arg value="#{'Nikita'}"/>
+        <constructor-arg value="#{true}"/>
+        <constructor-arg value="#{0}"/>
+        <constructor-arg value="#{110}"/>
+        <constructor-arg value="#{110}"/>
     </bean>
-    <bean id="tvims" class="Lesson">
-        <constructor-arg value="Tvims"/>
-    </bean>
-    <!-- СТУДЕНТЫ -->
-    <bean id="eugene" class="Student">
-        <constructor-arg value="Eugene"/>
-        <constructor-arg value="lessonList"/>
-        <property name="lessonList">
-            <list>
-                <ref bean="proga"/>
-                <ref bean="tvims"/>
-            </list>
-        </property>
+    <bean id="footballPlayer2" class="Football.FootballPlayer">
+        <constructor-arg value="#{'Kirill'}"/>
+        <constructor-arg value="#{true}"/>
+        <constructor-arg value="#{0}"/>
+        <constructor-arg value="#{110}"/>
+        <constructor-arg value="#{110}"/>
     </bean>
 
-    <bean id="nikita" class="Student">
-        <constructor-arg value="Nikita"/>
-        <constructor-arg value="lessonList"/>
-        <property name="lessonList">
-            <list>
-                <ref bean="proga"/>
-                <ref bean="tvims"/>
-            </list>
-        </property>
-    </bean>
-    <bean id="damir" class="Student">
-        <constructor-arg value="Damir"/>
-        <constructor-arg value="lessonList"/>
-        <property name="lessonList">
-            <list>
-                <ref bean="tvims"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="michail" class="Student">
-        <constructor-arg value="Michail"/>
-        <constructor-arg value="lessonList"/>
-        <property name="lessonList">
-            <list>
-                <ref bean="proga"/>
-            </list>
-        </property>
-    </bean>
-    <!-- ГРУППЫ -->
-    <bean id="09-502" class="Group">
-        <constructor-arg value="09-502"/>
-        <constructor-arg value="studentslist"/>
-        <property name="students">
-            <list>
-                <ref bean="michail"/>
-            </list>
-        </property>
-    </bean>
-    <bean id="11-401" class="Group">
-        <constructor-arg value="11-401"/>
-        <constructor-arg value="studentslist"/>
-        <property name="students">
-            <list>
-                <ref bean="eugene"/>
-                <ref bean="nikita"/>
-            </list>
-        </property>
-    </bean>
-    <bean id="11-402" class="Group">
-        <constructor-arg value="11-402"/>
-        <constructor-arg value="studentslist"/>
-        <property name="students">
-            <list>
-                <ref bean="damir"/>
-            </list>
-        </property>
-    </bean>
-    <!-- УНИВЕРЫ -->
-    <bean id="institute" class="Institute">
-        <constructor-arg value="ITIS"/>
-        <constructor-arg value="groups"/>
-        <property name="groups">
-            <list>
-                <ref bean="11-401"/>
-                <ref bean="11-402"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="ivmiit" class="Institute">
-        <constructor-arg value="IVMIIT"/>
-        <constructor-arg value="groups"/>
-        <property name="groups">
-            <list>
-                <ref bean="09-502"/>
-            </list>
-        </property>
-    </bean>
 </beans>
