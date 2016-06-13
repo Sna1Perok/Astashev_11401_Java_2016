@@ -25,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/predictor">predictor</a>
+                <a class="navbar-brand" href="/oafl">OALF</a>
             </div>
 
             <!-- Button trigger modal -->
@@ -33,30 +33,7 @@
 
 
             </ul>
-            <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Something <b class="caret"></b></a>
-                        <ul class="dropdown-menu" aria-labelledby="drop1">
-                            <li><a href="/gototravel/lastminute">Горячие путевки</a></li>
-                            <li><a href="/gototravel/hotel">Отели</a></li>
-                            <li><a href="/gototravel/review">Отзывы</a></li>
 
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Something2<b class="caret"></b></a>
-                        <ul class="dropdown-menu" aria-labelledby="drop2">
-                            <li><a href="/gototravel/truestory">Тру стори</a></li>
-                            <li><a href="/gototravel/lifehask">Лайф хак</a></li>
-                            <li><a href="https://www.gismeteo.ru/city/daily/4364/">Погода</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
         </div>
     </nav>
 </div>
@@ -66,81 +43,39 @@
     <h1>Login
     </h1>
 </div>
-<form class="form-horizontal">
+
 <#if error??>
-    <div class="alert alert-danger">
-        <strong>Oh snap!</strong> Change a few things up and try submitting again.
-    </div>
+<div class="alert alert-danger">
+    <strong>Oh snap!</strong> Change a few things up and try submitting again.
+</div>
 </#if>
+
+
+<form class="form-horizontal" role="form" action="/login/process" method="post">
     <div class="form-group">
-        <label class="control-label col-xs-4" for="inputEmail">Email:</label>
+        <label class="control-label col-xs-4">Login:</label>
 
         <div class="col-xs-4">
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            <input class="form-control" placeholder="Enter login" type="text" name="login" autofocus>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-xs-4" for="inputPassword">Pass:</label>
+        <label class="control-label col-xs-4">Pass:</label>
 
         <div class="col-xs-4">
-            <input type="password" class="form-control" id="inputPassword" placeholder="your password">
+            <input class="form-control" placeholder="Enter password" type="password" name="password">
         </div>
     </div>
-
 
     <div class="form-group">
         <div class="col-xs-offset-4 col-xs-9">
-            <input type="submit" class="btn btn-primary" value="login">
+            <button type="submit" class="btn btn-success">Log In</button>
             <input type="reset" class="btn btn-default" value="clean the form">
-            <a class="btn btn-primary" href="/predictor/registration" role="button">registration</a>
+            <a class="btn btn-primary" href="/oafl/registration" role="button">registration</a>
         </div>
     </div>
-
-
-    <div class="page-header">
-        <div align="center">
-            <h1>
-                With us you can
-            </h1>
-        </div>
-    </div>
-
-
-    <div class="panel-group" id="collapse-group">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#collapse-group" href="#el1">have fun </a>
-                </h4>
-            </div>
-            <div id="el1" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    ssss
-                </div>
-                <div class="panel-body">
-                    aaaa
-                </div>
-                <div class="panel-body">
-                    dddd
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#collapse-group" href="#el2">
-                        Make many with us!</a>
-                </h4>
-            </div>
-            <div id="el2" class="panel-collapse collapse">
-                <div class="panel-body">
-                    ddd
-                </div>
-                <div class="panel-body">
-                    eeeee
-                </div>
-            </div>
-        </div>
 </form>
+
+
 </body>
 </html>

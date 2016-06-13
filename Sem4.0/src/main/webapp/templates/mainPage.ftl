@@ -23,55 +23,39 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/predictor">predictor</a>
+                <a class="navbar-brand" href="/oafl">OAFL</a>
             </div>
 
             <!-- Button trigger modal -->
             <ul class="nav navbar-nav navbar-right">
+            <#if user?has_content>
+                <#if id==1>
+                    <a class="btn btn-link" href="/admin" role="button">admin</a>
+                <#else >
+                    <#if teamid==1>
+                        <a class="btn btn-default btn-success" href="/oafl/team/create-team" role="button"> Create new
+                            team</a>
+                        <a class="btn btn-default btn-info" href="/oafl/team/find-team" role="button">Find team </a>
+                    </#if>
+                </#if>
 
-                <form class="navbar-form navbar-left" role="form">
+                <a class="btn btn-link" href="/oafl/user/${id}" role="button">${user}</a>
+                <a class="btn btn-default" href="/logout" role="button">go out</a>
+            <#else >
+                <form class="navbar-form navbar-left" role="form" action="/login/process" method="post">
                     <div class="form-group">
-                        <input type="text" placeholder="Email" class="form-control">
+                        <input class="form-control" placeholder="Enter login" type="text" name="login" autofocus>
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
+                        <input class="form-control" placeholder="Enter password" type="password" name="password">
                     </div>
                     <button type="submit" class="btn btn-success">Sign in</button>
-                    <button type="button" class="btn btn-link"><a href="/predictor/registration">registration</a> </button>
-                    <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-                      About us
+                    <button type="button" class="btn btn-link"><a href="/oafl/registration">registration</a>
                     </button>
+
                 </form>
-
-
+            </#if>
             </ul>
-            <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Something <b class="caret"></b></a>
-                        <ul class="dropdown-menu" aria-labelledby="drop1">
-                            <li><a href="/gototravel/lastminute">Горячие путевки</a></li>
-                            <li><a href="/gototravel/hotel">Отели</a></li>
-                            <li><a href="/gototravel/review">Отзывы</a></li>
-
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Something2<b class="caret"></b></a>
-                        <ul class="dropdown-menu" aria-labelledby="drop2">
-                            <li><a href="/gototravel/truestory">Тру стори</a></li>
-                            <li><a href="/gototravel/lifehask">Лайф хак</a></li>
-                            <li><a href="https://www.gismeteo.ru/city/daily/4364/">Погода</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
-
-
-
 
 
         </div>
@@ -101,8 +85,8 @@
 <div class="container">
 
     <div class="page-header">
-        <h1>predictor
-            <small>Win with us</small>
+        <h1>OAFL
+            <small>Open amateur football league</small>
         </h1>
     </div>
 
@@ -134,7 +118,7 @@
     <div class="page-header">
         <div align="center">
             <h1>
-               With us you can
+                With us you can
             </h1>
         </div>
     </div>
@@ -149,13 +133,13 @@
             </div>
             <div id="el1" class="panel-collapse collapse in">
                 <div class="panel-body">
-                   ssss
+                    <a class="btn btn-default" href="/oafl/rates" role="button">Check games</a>
                 </div>
                 <div class="panel-body">
-                    aaaa
+                    Create your own team!
                 </div>
                 <div class="panel-body">
-                    dddd
+                    Chose tournament!
                 </div>
             </div>
         </div>
@@ -163,25 +147,74 @@
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#collapse-group" href="#el2">
-                       Make money  with us!</a>
+                        Grow with us!</a>
                 </h4>
             </div>
             <div id="el2" class="panel-collapse collapse">
                 <div class="panel-body">
-                   ddd
+                    Upgrade your skill!
                 </div>
                 <div class="panel-body">
-                  eeeee
+                    Score goals.
                 </div>
             </div>
         </div>
+    </div>
 
-</div>
+    <div class="col-xs-offset-1 col-xs-10">
+        <table class="table navbar">
+            <thead>
+            <tr class="alert-info">
+                <th> <div align="center">News</div></th>
+            </tr>
+            </thead>
+            <tbody>
+                <#list game_list as atr>
+                <tr class="alert-warning">
+                    <td>
+                        <div align="center"></div>
+                    </td>
+                </tr>
+                <tr class="alert-danger">
+                    <td> <div align="center">${atr.topic}</div></td>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="btn-group btn-group-sm ">
+                            <div class=" btn-group-justified btn-group-sm ">
+                                <a class="btn btn-success disabled" href="/oafl/login"
+                                   role="button">${atr.leagueName}</a>
+                            </div>
+                        </div>
+                        <div class="btn-group ">
+                            <div class=" btn-group-justified">
+                                <a class="btn btn-primary   " href="/oafl/team/${atr.team1name}"
+                                   role="button">${atr.team1name}</a>
+                                    <a class="btn btn-info btn-2  disabled" href="/oafl/login"
+                                <#if atr.score??>
+                                       role="button">${atr.score}</a>
+                                <#else >
+                                    role="button">---</a>
+                                </#if>
+                                <a class="btn btn-primary   " href="/oafl/team/${atr.team2name}"
+                                   role="button">${atr.team2name}</a>
+                            </div>
+                        </div>
+                        <div class="btn-group btn-group-">
+                            <div class="btn-group btn-group-xs ">
+                                <a class="btn btn-success btn-block disabled " href="/oafl/login"
+                                   role="button">${atr.date}</a>
+                            </div>
+                        </div>
+
+                    </th>
+                </tr>
 
 
-</div>
-
-
+                </#list>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>

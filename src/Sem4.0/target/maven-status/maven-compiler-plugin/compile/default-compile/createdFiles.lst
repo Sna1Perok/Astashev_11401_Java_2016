@@ -1,0 +1,9 @@
+ru\itis\astashev\controller\RatesPageController.class
+ru\itis\astashev\controller\RegPageController.class
+ru\itis\astashev\entity\User.class
+Main.class
+ru\itis\astashev\controller\contrl.class
+ru\itis\astashev\repository\GroupRepository.class
+ru\itis\astashev\entity\Group.class
+ru\itis\astashev\controller\HelloPageController.class
+ru\itis\astashev\controller\LoginPageController.class

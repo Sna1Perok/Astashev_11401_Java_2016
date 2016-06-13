@@ -1,4 +1,6 @@
-<#ftl encoding='UTF-8'>
+<#assign security=JspTaglibs["http://www.springframework.org/security/tags"]/>
+<#assign form=JspTaglibs["http://www.springframework.org/tags/form"]>
+<#assign tg=JspTaglibs["http://www.springframework.org/tags"]>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,7 +16,6 @@
 <body>
 
 
-
 <div class="container">
 
     <nav id="navbar-example" class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -27,34 +28,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/predictor">predictor</a>
+                <a class="navbar-brand" href="/oafl">OALF</a>
             </div>
 
             <!-- Button trigger modal -->
-            <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Something <b class="caret"></b></a>
-                        <ul class="dropdown-menu" aria-labelledby="drop1">
-                            <li><a href="/gototravel/lastminute">Горячие путевки</a></li>
-                            <li><a href="/gototravel/hotel">Отели</a></li>
-                            <li><a href="/gototravel/review">Отзывы</a></li>
-
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Something2<b class="caret"></b></a>
-                        <ul class="dropdown-menu" aria-labelledby="drop2">
-                            <li><a href="/gototravel/truestory">Тру стори</a></li>
-                            <li><a href="/gototravel/lifehask">Лайф хак</a></li>
-                            <li><a href="https://www.gismeteo.ru/city/daily/4364/">Погода</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
 
 
         </div>
@@ -62,95 +39,80 @@
 </div>
 
 
-
 <div class="page-header" align="center">
     <h1>Registration
     </h1>
 </div>
-<form class="form-horizontal">
-    <div align="center" class="form-group">
+<#if error??>
+<div class="alert alert-danger" align="centr">
+    <strong>Oops!</strong>You should change something and try submitting again.
+</div>
+</#if>
+<@form.form action="/oafl/registration" method="post" commandName="reg_form" role="form">
+<div align="center" class="form-group">
+    <div class="col-xs-offset-4 col-xs-9">
         <label class="control-label col-xs-4" for="lastName">Surname:</label>
-
-        <div class="col-xs-4">
-            <input type="text" class="form-control" id="lastName" placeholder="your surname">
-        </div>
     </div>
-    <div class="form-group" align="center">
+    <div class="col-xs-offset-4 col-xs-5">
+        <@form.input path="surname" name="surname" id="surname" cssClass="form-control" placeholder="your surname"/>
+    </div>
+</div>
+<br>
+
+<div class="form-group" align="center">
+    <div class="col-xs-offset-4 col-xs-9">
         <label class="control-label col-xs-4" for="firstName">Name:</label>
-
-        <div class="col-xs-4">
-            <input type="text" class="form-control" id="firstName" placeholder="your name">
-        </div>
     </div>
+    <div class="col-xs-offset-4 col-xs-5">
 
-
-    <div class="form-group">
-        <label class="control-label col-xs-4" for="inputEmail">Email:</label>
-
-        <div class="col-xs-4">
-            <input type="email" class="form-control" id="inputEmail" placeholder="your email">
-        </div>
+        <@form.input path="name" name="name" id="name" cssClass="form-control" placeholder="your name"/>
     </div>
-    <div class="form-group">
+</div>
+
+<div class="form-group" align="center">
+    <div class="col-xs-offset-4 col-xs-9">
+        <label class="control-label col-xs-4" for="firstName">login:</label>
+    </div>
+    <div class="col-xs-offset-4 col-xs-5">
+
+        <@form.input path="login" name="login" id="login" cssClass="form-control" placeholder="your login"/>
+    </div>
+</div>
+<div class="form-group" align="center">
+    <div class="col-xs-offset-4 col-xs-9">
+        <label class="control-label col-xs-4" >Email:</label>
+    </div>
+    <div class="col-xs-offset-4 col-xs-5">
+        <@form.input path="email" name="email" id="email" cssClass="form-control" placeholder="your email"/>
+    </div>
+</div>
+<div class="form-group" align="center">
+    <div class="col-xs-offset-4 col-xs-9">
         <label class="control-label col-xs-4" for="inputPassword">Password:</label>
-
-        <div class="col-xs-4">
-            <input type="password" class="form-control" id="inputPassword" placeholder="your password">
-        </div>
     </div>
-    <div class="form-group">
+    <div class="col-xs-offset-4 col-xs-5">
+        <@form.input path="password" name="password" id="password" type="password" cssClass="form-control" placeholder="your password"/>
+    </div>
+</div>
+<div class="form-group" align="center">
+    <div class="col-xs-offset-4 col-xs-9">
         <label class="control-label col-xs-4" for="confirmPassword">Confirm the password:</label>
-
-        <div class="col-xs-4">
-            <input type="password" class="form-control" id="confirmPassword" placeholder="confirm password">
-        </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-xs-4" for="phoneNumber">Phone:</label>
-
-        <div class="col-xs-4">
-            <input type="tel" class="form-control" id="phoneNumber" placeholder="phone number">
-        </div>
+    <div class="col-xs-offset-4 col-xs-5">
+        <@form.input path="repassword" name="repassword" id="confirmPassword"type="password" cssClass="form-control" placeholder="confirm password"/>
     </div>
-    <div class="form-group">
-        <label class="control-label col-xs-4" for="postalAddress">City:</label>
+</div>
+</div>
 
-        <div class="col-xs-4">
-            <textarea rows="3" class="form-control" id="postalAddress" placeholder="your city"></textarea>
-        </div>
+<div class="form-group">
+    <div class="col-xs-offset-4 col-xs-9">
+        <input type="submit" class="btn btn-primary" value="registration">
+        <input type="reset" class="btn btn-default" value="clean the form">
+        <a class="btn btn-primary" href="/login" role="button">login</a>
     </div>
-    <div class="form-group">
-        <label class="control-label col-xs-4">Gender:</label>
-
-        <div class="col-xs-2">
-            <label class="radio-inline">
-                <input type="radio" name="genderRadios" value="male"> Male
-            </label>
-        </div>
-        <div class="col-xs-2">
-            <label class="radio-inline">
-                <input type="radio" name="genderRadios" value="female"> Female
-            </label>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-xs-offset-4 col-xs-8">
-            <label class="checkbox-inline">
-                <input type="checkbox" value="agree"> I'm agree with <a href="#">usloviem</a>.
-            </label>
-        </div>
-    </div>
-    <br/>
-
-    <div class="form-group">
-        <div class="col-xs-offset-4 col-xs-9">
-            <input type="submit" class="btn btn-primary" value="registration">
-            <input type="reset" class="btn btn-default" value="clean the form">
-            <a class="btn btn-primary" href="/predictor/login" role="button">login</a>
-        </div>
-    </div>
+</div>
 
 
-</form>
+</@form.form>
 </body>
 </html>

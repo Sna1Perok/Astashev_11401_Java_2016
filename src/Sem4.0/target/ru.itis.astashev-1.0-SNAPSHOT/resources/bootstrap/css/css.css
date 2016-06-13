@@ -1,0 +1,28 @@
+.img-responsive {
+    max-width: 30%;
+    height: auto;
+}
+
+.carousel {
+    margin-bottom: 0;
+    padding: 0 0px 0px 0px;
+}
+
+.carousel-indicators li {
+    background: #c0c0c0;
+}
+.page-header{
+    padding: 20px 0px 0px 0px;
+}
+body {
+    background-image: url(/resources/image/giftly.png);
+}
+.panel-group{
+    padding: 0 100px 0px 100px;
+}
+.h1{
+    text-align:  center;
+}
+.btn-2 label.btn  {
+    width: 10%;
+}

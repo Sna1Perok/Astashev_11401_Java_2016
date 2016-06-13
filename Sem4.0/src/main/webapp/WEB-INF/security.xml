@@ -10,17 +10,11 @@
     <security:http auto-config="true" use-expressions="true">
 
         <security:intercept-url pattern="/login" access="isAnonymous()"/>
-        <security:intercept-url pattern="/registratifqon" access="isAnonymous()"/>
+        <security:intercept-url pattern="/registration" access="isAnonymous()"/>
         <security:intercept-url pattern="/index" access="permitAll()"/>
-        <security:intercept-url pattern="/resources/**" access="permitAll()"/>
-        <security:intercept-url pattern="/sysadmin" access="hasRole('ROLE_SYSADMIN')"/>
-        <security:intercept-url pattern="/sysadmin/**" access="hasRole('ROLE_SYSADMIN')"/>
-        <security:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/oafl/team/create-team" access="hasRole('ROLE_USER')"/>
         <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
-        <security:intercept-url pattern="/publisher" access="hasRole('ROLE_PUBLISHER')"/>
-        <security:intercept-url pattern="/publisher/**" access="hasRole('ROLE_PUBLISHER')"/>
-        <security:intercept-url pattern="/moderator" access="hasRole('ROLE_MODERATOR')"/>
-        <security:intercept-url pattern="/moderator/**" access="hasRole('ROLE_MODERATOR')"/>
+        <security:intercept-url pattern="/captain/**" access="hasRole(' ROLE_CAPITAN')"/>
         <security:form-login
                 login-page="/login"
                 login-processing-url="/login/process"
@@ -29,7 +23,7 @@
                 default-target-url="/default"
                 always-use-default-target="true"
                 authentication-failure-url="/login?error=true"/>
-        <security:logout logout-url="/logout" logout-success-url="/"/>
+        <security:logout logout-url="/logout" logout-success-url="/oafl"/>
 
         <security:access-denied-handler ref="accessDeniedHandler"/>
     </security:http>
